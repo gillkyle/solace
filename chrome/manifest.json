@@ -1,0 +1,30 @@
+{
+  "name": "Solace",
+  "short_name": "Solace",
+  "description": "Removes feeds and loud buttons from popular social media on your desktop browser.",
+  "version": "1.00",
+  "manifest_version": 2,
+  "permissions": ["storage", "tabs"],
+  "content_scripts": [
+    {
+      "js": ["solace.js"],
+      "matches": ["https://twitter.com/home", "https://mobile.twitter.com/home"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+T",
+        "mac": "MacCtrl+Shift+T"
+      },
+      "description": "Opens Solace"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  }
+}
