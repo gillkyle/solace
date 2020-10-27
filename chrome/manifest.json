@@ -1,14 +1,19 @@
 {
   "name": "Solace",
   "short_name": "Solace",
-  "description": "Removes feeds and loud buttons from popular social media on your desktop browser.",
+  "description": "Removes feeds and distracting content from popular social media like Facebook and Twitter.",
   "version": "1.00",
   "manifest_version": 2,
   "permissions": ["storage", "tabs"],
   "content_scripts": [
     {
       "js": ["solace.js"],
-      "matches": ["https://twitter.com/*", "https://mobile.twitter.com/*"]
+      "matches": [
+        "https://twitter.com/*",
+        "https://mobile.twitter.com/*",
+        "https://www.facebook.com/*",
+        "https://m.facebook.com/*"
+      ]
     },
     {
       "css": ["solace.css"],

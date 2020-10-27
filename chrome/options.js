@@ -1,9 +1,11 @@
 // Saves options to chrome.storage
 function save_options() {
   var removeTwitterFeed = document.getElementById("removeTwitterFeed").checked
+  var removeFacebookFeed = document.getElementById("removeFacebookFeed").checked
   chrome.storage.sync.set(
     {
-      removeTwitterFeed
+      removeTwitterFeed,
+      removeFacebookFeed
     },
     function () {
       // Update status to let user know options were saved.
@@ -21,11 +23,14 @@ function save_options() {
 function restore_options() {
   chrome.storage.sync.get(
     {
-      removeTwitterFeed: true
+      removeTwitterFeed: true,
+      removeFacebookFeed: true
     },
     function (items) {
       document.getElementById("removeTwitterFeed").checked =
         items.removeTwitterFeed
+      document.getElementById("removeFacebookFeed").checked =
+        items.removeFacebookFeed
     }
   )
 }

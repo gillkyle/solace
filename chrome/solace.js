@@ -1,16 +1,15 @@
-function appendStyles(css) {
+function injectStyles(css) {
+  console.log(css)
   const head = document.querySelector("head")
   let style
   const solaceTag = document.getElementById(`solace`)
   if (solaceTag) {
-    console.log("existing solace tag")
-    console.log(solaceTag)
+    // console.log("existing solace tag")
     solaceTag.textContent = `${css}`
   } else {
+    // console.log("new solace tag")
     style = document.createElement("style")
     style.id = `solace`
-    console.log("new solace tag")
-    console.log(style)
     style.textContent = `${css}`
     head.appendChild(style)
   }
@@ -27,32 +26,39 @@ div[data-testid="primaryColumn"] {
 }
 `
 
+const facebookStyles = `
+div[role="main"] { 
+  visibility: hidden !important; 
+}
+`
+
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   console.log({ request, sender })
   chrome.storage.sync.get(
     {
+      removeFacebookFeed: true,
       removeTwitterFeed: true
     },
     function (storage) {
-      console.log(storage)
+      console.log({ fb: storage.removeFacebookFeed })
+      console.log({ tw: storage.removeTwitterFeed })
       if (request === `Inject`) {
-        if (storage.removeTwitterFeed) appendStyles(twitterStyles)
+        console.log("inject")
+        injectStyles(`
+          ${storage.removeTwitterFeed ? twitterStyles : ``}
+          ${storage.removeFacebookFeed ? facebookStyles : ``}
+        `)
       } else if (request === `Revert`) {
+        console.log("revert")
         removeStyles()
       }
     }
   )
 })
 
-// chrome.storage.sync.get(
-//   {
-//     twitter: true,
-//   },
-//   function (items) {
-//     if(items.twitter) {
-//       console.log("blah blah blah")
-//       const feed = document.querySelector(`div[data-testid="primaryColumn"]`)
-//       appendStyles(`div[data-testid="primaryColumn"] { display: none !important; }`)
-//     }
-//   }
-// );
+// Facebook doesn't have a good way to inject when refreshing, do so here
+if (window.location.href === `https://www.facebook.com/`) {
+  injectStyles(facebookStyles)
+} else {
+  revertStyles()
+}
