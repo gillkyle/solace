@@ -1,3 +1,13 @@
+/**
+ * ============================================================================
+ * TWITTER
+ * ============================================================================
+ */
+a[href="/explore"] {
+  display: none !important;
+}
+
+/* Comes from Minimal Twitter: https://github.com/thomaswang/minimal-twitter/blob/master/chrome/minimal-twitter.css */
 header[role="banner"] {
   align-items: start !important;
   max-width: 100px !important;

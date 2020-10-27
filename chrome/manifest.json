@@ -8,11 +8,16 @@
   "content_scripts": [
     {
       "js": ["solace.js"],
-      "matches": ["https://twitter.com/home", "https://mobile.twitter.com/home"]
+      "matches": ["https://twitter.com/*", "https://mobile.twitter.com/*"]
+    },
+    {
+      "css": ["solace.css"],
+      "matches": ["<all_urls>"]
     }
   ],
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["background.js"],
+    "run_at": "document_end"
   },
   "commands": {
     "_execute_browser_action": {

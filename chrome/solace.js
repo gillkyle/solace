@@ -1,14 +1,14 @@
-function appendStyles(css, id) {
+function appendStyles(css) {
   const head = document.querySelector("head")
   let style
-  const solaceTag = document.getElementById(`solace-${id}`)
+  const solaceTag = document.getElementById(`solace`)
   if (solaceTag) {
     console.log("existing solace tag")
     console.log(solaceTag)
     solaceTag.textContent = `${css}`
   } else {
     style = document.createElement("style")
-    style.id = `solace-${id}`
+    style.id = `solace`
     console.log("new solace tag")
     console.log(style)
     style.textContent = `${css}`
@@ -16,10 +16,28 @@ function appendStyles(css, id) {
   }
 }
 
-function removeStyles(css, id) {
-  const solaceTag = document.getElementById(`solace-${id}`)
+function removeStyles() {
+  const solaceTag = document.getElementById(`solace`)
   solaceTag.remove()
 }
+
+const twitterStyles = `
+div[data-testid="primaryColumn"] { 
+  visibility: hidden !important; 
+}
+a[href="/explore"] {
+  display: none !important;
+}
+`
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+  console.log({ request, sender })
+  if (request === `Inject`) {
+    appendStyles(twitterStyles)
+  } else if (request === `Revert`) {
+    removeStyles()
+  }
+})
 
 // chrome.storage.sync.get(
 //   {
@@ -33,11 +51,3 @@ function removeStyles(css, id) {
 //     }
 //   }
 // );
-
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  console.log({ request, sender })
-  appendStyles(
-    `div[data-testid="primaryColumn"] { display: none !important; }`,
-    `twitter`
-  )
-})
