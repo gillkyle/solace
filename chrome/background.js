@@ -24,7 +24,6 @@ const inject = async () => {
   const message = `Inject`
   // chrome.tabs.sendMessage(tabId, message)
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    console.log(tabs[0])
     chrome.tabs.sendMessage(tabs[0].id, message)
   })
 }
@@ -35,14 +34,13 @@ const revert = async () => {
   // chrome.tabs.sendMessage(tabId, message)
   await new Promise(r => setTimeout(r, 250))
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    console.log(tabs[0])
     chrome.tabs.sendMessage(tabs[0].id, message)
   })
 }
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-  console.log(`onUpdated`)
-  console.log({ changeInfo })
+  // console.log(`onUpdated`)
+  // console.log({ changeInfo })
   const shouldInject =
     urlsToInject.includes(changeInfo.url) ||
     titlesToInject.includes(changeInfo.title) ||
@@ -66,8 +64,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 })
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
-  console.log(`onActivated`)
-  console.log(activeInfo)
+  // console.log(`onActivated`)
+  // console.log(activeInfo)
   chrome.tabs.get(activeInfo.tabId, tab => {
     if (urlsToInject.includes(tab.url)) {
       inject(activeInfo.tabId)
@@ -80,8 +78,8 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
 })
 
 chrome.tabs.onReplaced.addListener(function (activeInfo) {
-  console.log(`onReplaced`)
-  console.log(activeInfo)
+  // console.log(`onReplaced`)
+  // console.log(activeInfo)
   chrome.tabs.get(activeInfo.tabId, tab => {
     if (urlsToInject.includes(tab.url)) {
       inject(activeInfo.tabId)

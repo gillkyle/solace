@@ -1,5 +1,4 @@
 function injectStyles(css) {
-  console.log(css)
   const head = document.querySelector("head")
   let style
   const solaceTag = document.getElementById(`solace`)
@@ -28,20 +27,17 @@ div[data-testid="primaryColumn"] {
 
 const facebookStyles = `
 div[role="main"] { 
-  visibility: hidden !important; 
+  display: none !important; 
 }
 `
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  console.log({ request, sender })
   chrome.storage.sync.get(
     {
       removeFacebookFeed: true,
       removeTwitterFeed: true
     },
     function (storage) {
-      console.log({ fb: storage.removeFacebookFeed })
-      console.log({ tw: storage.removeTwitterFeed })
       if (request === `Inject`) {
         console.log("inject")
         injectStyles(`
@@ -60,5 +56,5 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 if (window.location.href === `https://www.facebook.com/`) {
   injectStyles(facebookStyles)
 } else {
-  revertStyles()
+  removeStyles()
 }
