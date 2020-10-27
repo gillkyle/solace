@@ -1,9 +1,9 @@
 // Saves options to chrome.storage
 function save_options() {
-  var twitterStyles = document.getElementById("twitterStyles").checked
+  var removeTwitterFeed = document.getElementById("removeTwitterFeed").checked
   chrome.storage.sync.set(
     {
-      twitterStyles
+      removeTwitterFeed
     },
     function () {
       // Update status to let user know options were saved.
@@ -21,10 +21,11 @@ function save_options() {
 function restore_options() {
   chrome.storage.sync.get(
     {
-      twitterStyles: true
+      removeTwitterFeed: true
     },
     function (items) {
-      document.getElementById("twitterStyles").checked = items.twitterStyles
+      document.getElementById("removeTwitterFeed").checked =
+        items.removeTwitterFeed
     }
   )
 }

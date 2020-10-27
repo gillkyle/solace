@@ -31,18 +31,17 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   console.log({ request, sender })
   chrome.storage.sync.get(
     {
-      twitterStyles: true
+      removeTwitterFeed: true
     },
     function (storage) {
       console.log(storage)
-      document.getElementById("twitterStyles").checked = storage.twitterStyles
+      if (request === `Inject`) {
+        if (storage.removeTwitterFeed) appendStyles(twitterStyles)
+      } else if (request === `Revert`) {
+        removeStyles()
+      }
     }
   )
-  if (request === `Inject`) {
-    appendStyles(twitterStyles)
-  } else if (request === `Revert`) {
-    removeStyles()
-  }
 })
 
 // chrome.storage.sync.get(
