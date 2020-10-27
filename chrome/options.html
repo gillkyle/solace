@@ -517,64 +517,32 @@
           cursor: help;
         }
       }
+
+      i {
+        height: 16px;
+      }
+
+      label > span {
+        display: flex;
+      }
     </style>
   </head>
   <body>
     <main>
-      <h6>Preferences</h6>
-      <p>
-        <label>Preferred width of Twitter feed</label>
-        <select style="width: 100%" id="feed-width">
-          <option value="600">600 pixels (default)</option>
-          <option value="700">700 pixels</option>
-          <option value="800">800 pixels</option>
-        </select>
-      </p>
+      <h6>Solace Preferences</h6>
       <p>
         <label>
-          <input type="checkbox" id="top-navigation" />
-          <span>Top align navigation</span>
-        </label>
-      </p>
-      <p>
-        <label>
-          <input type="checkbox" id="feed-borders" />
-          <span>Feed borders</span>
-        </label>
-      </p>
-      <p>
-        <label>
-          <input type="checkbox" id="borders" />
-          <span>Minimize borders</span>
-        </label>
-      </p>
-      <p>
-        <label>
-          <input type="checkbox" id="tweet" />
-          <span>Remove bottom right Tweet button</span>
-        </label>
-      </p>
-      <p>
-        <label>
-          <input type="checkbox" id="message" />
-          <span>Show bottom right Message Drawer</span>
-        </label>
-      </p>
-      <p>
-        <label>
-          <input type="checkbox" id="retweet" />
-          <span>Remove retweet count</span>
-        </label>
-      </p>
-      <p>
-        <label>
-          <input type="checkbox" id="like" />
-          <span>Remove like count</span>
+          <input type="checkbox" id="twitterStyles" />
+          <span>
+            <i data-feather="twitter"></i>
+            Twitter Styles
+          </span>
         </label>
       </p>
       <button id="save">Save</button>
     </main>
     <div id="status"></div>
+    <script src="feather.min.js"></script>
     <script src="options.js"></script>
   </body>
 </html>
