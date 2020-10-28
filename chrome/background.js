@@ -5,33 +5,32 @@ const urlsToInject = [
   "https://twitter.com/compose/tweet",
   "https://mobile.twitter.com/home",
   "https://www.facebook.com/",
-  "https://m.facebook.com/"
+  "https://m.facebook.com/",
+  "https://www.instagram.com/",
+  "https://www.instagram.com/explore/",
 ]
 // not all urls cover changing urls, need to include titles since those can change in SPAs in some cases
 const titlesToInject = ["Home / Twitter", "Explore / Twitter", "Facebook"]
-// Facebook only has a favicon in the change when refreshing
-const faviconsToInject = ["fbcdn"]
+
 // a url only needs to contain these to revert styles
 const urlsToRevert = [
   "https://twitter.com",
   "https://mobile.twitter.com",
   "https://www.facebook.com/",
-  "https://m.facebook.com/"
+  "https://m.facebook.com/",
 ]
 
 const inject = async () => {
-  console.log(`Injecting...`)
+  // console.log(`Injecting...`)
   const message = `Inject`
-  // chrome.tabs.sendMessage(tabId, message)
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, message)
   })
 }
 
 const revert = async () => {
-  console.log(`Reverting...`)
+  // console.log(`Reverting...`)
   const message = `Revert`
-  // chrome.tabs.sendMessage(tabId, message)
   await new Promise(r => setTimeout(r, 250))
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, message)
@@ -43,14 +42,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   // console.log({ changeInfo })
   const shouldInject =
     urlsToInject.includes(changeInfo.url) ||
-    titlesToInject.includes(changeInfo.title) ||
-    faviconsToInject.some(
-      url =>
-        changeInfo &&
-        changeInfo.favIconUrl &&
-        (console.log(changeInfo.favIconUrl) ||
-          changeInfo.favIconUrl.includes(url))
-    )
+    titlesToInject.includes(changeInfo.title)
 
   if (shouldInject) {
     inject()

@@ -2,10 +2,15 @@
 function save_options() {
   var removeTwitterFeed = document.getElementById("removeTwitterFeed").checked
   var removeFacebookFeed = document.getElementById("removeFacebookFeed").checked
+  var removeLinkedinFeed = document.getElementById("removeLinkedinFeed").checked
+  var removeInstagramFeed = document.getElementById("removeInstagramFeed")
+    .checked
   chrome.storage.sync.set(
     {
       removeTwitterFeed,
-      removeFacebookFeed
+      removeFacebookFeed,
+      removeLinkedinFeed,
+      removeInstagramFeed,
     },
     function () {
       // Update status to let user know options were saved.
@@ -24,13 +29,19 @@ function restore_options() {
   chrome.storage.sync.get(
     {
       removeTwitterFeed: true,
-      removeFacebookFeed: true
+      removeFacebookFeed: true,
+      removeLinkedinFeed: true,
+      removeInstagramFeed: true,
     },
     function (items) {
       document.getElementById("removeTwitterFeed").checked =
         items.removeTwitterFeed
       document.getElementById("removeFacebookFeed").checked =
         items.removeFacebookFeed
+      document.getElementById("removeLinkedinFeed").checked =
+        items.removeLinkedinFeed
+      document.getElementById("removeInstagramFeed").checked =
+        items.removeInstagramFeed
     }
   )
 }

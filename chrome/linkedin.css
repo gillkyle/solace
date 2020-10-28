@@ -1,0 +1,13 @@
+/**
+ * ============================================================================
+ * LINKEDIN
+ * ============================================================================
+ */
+.ad-banner-container {
+  visibility: hidden !important;
+  padding: 0 !important;
+}
+
+.premium-upsell-link {
+  display: none !important;
+}

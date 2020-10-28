@@ -2,7 +2,7 @@
   "name": "Solace",
   "short_name": "Solace",
   "description": "Removes feeds and distracting content from popular social media like Facebook and Twitter.",
-  "version": "1.00",
+  "version": "0.0.1",
   "manifest_version": 2,
   "permissions": ["storage", "tabs"],
   "content_scripts": [
@@ -12,12 +12,22 @@
         "https://twitter.com/*",
         "https://mobile.twitter.com/*",
         "https://www.facebook.com/*",
-        "https://m.facebook.com/*"
+        "https://m.facebook.com/*",
+        "https://www.linkedin.com/*",
+        "https://www.instagram.com/*"
       ]
     },
     {
-      "css": ["solace.css"],
-      "matches": ["<all_urls>"]
+      "css": ["twitter.css"],
+      "matches": ["https://twitter.com/*", "https://mobile.twitter.com/*"]
+    },
+    {
+      "css": ["linkedin.css"],
+      "matches": ["https://www.linkedin.com/feed/"]
+    },
+    {
+      "css": ["instagram.css"],
+      "matches": ["https://www.instagram.com/"]
     }
   ],
   "background": {
@@ -36,5 +46,11 @@
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true
+  },
+  "icons": {
+    "16": "img/favicon@0.125x.png",
+    "32": "img/favicon@0.25x.png",
+    "48": "img/favicon@0.5x.png",
+    "128": "img/favicon.png"
   }
 }

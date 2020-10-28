@@ -16,7 +16,9 @@ function injectStyles(css) {
 
 function removeStyles() {
   const solaceTag = document.getElementById(`solace`)
-  solaceTag.remove()
+  if (solaceTag) {
+    solaceTag.remove()
+  }
 }
 
 const twitterStyles = `
@@ -31,30 +33,71 @@ div[role="main"] {
 }
 `
 
+const linkedinStyles = `
+div[role="main"] > div:nth-child(n + 2) {
+  display: none !important;
+}
+`
+
+const instagramStyles = `
+main[role="main"] {
+  display: none !important;
+}
+`
+
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   chrome.storage.sync.get(
     {
       removeFacebookFeed: true,
-      removeTwitterFeed: true
+      removeTwitterFeed: true,
+      removeLinkedinFeed: true,
+      removeInstagramFeed: true,
     },
     function (storage) {
       if (request === `Inject`) {
-        console.log("inject")
         injectStyles(`
           ${storage.removeTwitterFeed ? twitterStyles : ``}
           ${storage.removeFacebookFeed ? facebookStyles : ``}
+          ${storage.removeLinkedinFeed ? linkedinStyles : ``}
+          ${storage.removeInstagramFeed ? instagramStyles : ``}
         `)
       } else if (request === `Revert`) {
-        console.log("revert")
         removeStyles()
       }
     }
   )
 })
 
-// Facebook doesn't have a good way to inject when refreshing, do so here
-if (window.location.href === `https://www.facebook.com/`) {
-  injectStyles(facebookStyles)
-} else {
-  removeStyles()
-}
+// Chrome Extensions don't have a good way to inject when refreshing, do so here
+chrome.storage.sync.get(
+  {
+    removeFacebookFeed: true,
+    removeTwitterFeed: true,
+    removeLinkedinFeed: true,
+    removeInstagramFeed: true,
+  },
+  function (storage) {
+    switch (window.location.href) {
+      case "https://www.facebook.com/":
+        if (storage.removeFacebookFeed) injectStyles(facebookStyles)
+        break
+      case "https://www.linkedin.com/feed/":
+        if (storage.removeLinkedinFeed) injectStyles(linkedinStyles)
+        break
+      case "https://www.instagram.com/":
+        if (storage.removeInstagramFeed) injectStyles(instagramStyles)
+        break
+      case "https://www.instagram.com/explore":
+        if (storage.removeInstagramFeed) injectStyles(instagramStyles)
+        break
+      case "https://twitter.com/home":
+        if (storage.removeTwitterFeed) injectStyles(twitterStyles)
+        break
+      case "https://twitter.com/explore":
+        if (storage.removeTwitterFeed) injectStyles(twitterStyles)
+        break
+      default:
+        removeStyles()
+    }
+  }
+)
