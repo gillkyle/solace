@@ -54,11 +54,20 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       removeInstagramFeed: true,
     },
     function (storage) {
-      if (request === `Inject`) {
+      if (request === `InjectTwitter`) {
         injectStyles(`
           ${storage.removeTwitterFeed ? twitterStyles : ``}
+        `)
+      } else if (request === `InjectFacebook`) {
+        injectStyles(`
           ${storage.removeFacebookFeed ? facebookStyles : ``}
+        `)
+      } else if (request === `InjectLinkedin`) {
+        injectStyles(`
           ${storage.removeLinkedinFeed ? linkedinStyles : ``}
+        `)
+      } else if (request === `InjectInstagram`) {
+        injectStyles(`
           ${storage.removeInstagramFeed ? instagramStyles : ``}
         `)
       } else if (request === `Revert`) {
