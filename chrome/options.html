@@ -53,15 +53,13 @@
       }
 
       h1 {
-        font-size: 3.052rem;
-        letter-spacing: -0.15rem;
+        font-size: 1.5rem;
         line-height: 1;
       }
 
       h2 {
-        font-size: 2.441rem;
-        letter-spacing: -0.12rem;
-        line-height: 1.2;
+        font-size: 1rem;
+        margin-bottom: 0;
       }
 
       h3 {
@@ -90,6 +88,9 @@
 
       p {
         margin-bottom: 1.563rem;
+        max-width: 300px;
+        cursor: pointer !important;
+        z-index: 5;
       }
 
       p > *:last-child {
@@ -149,7 +150,7 @@
       input[type="number"] {
         padding: 0.5rem;
         font-size: 1rem;
-        border: 2px solid #f6f6f6;
+        border: 3px solid #ddd;
         background-color: #f6f6f6;
         color: #343334;
         border-radius: 10px;
@@ -196,13 +197,13 @@
       select:focus,
       textarea:focus {
         outline: none;
-        border: 2px solid #5aaafa;
+        border: 3px solid #343536;
       }
 
       input:invalid,
       select:invalid,
       textarea:invalid {
-        border: 2px solid #ff7d87;
+        border: 3px solid #ff7d87;
         box-shadow: none;
       }
 
@@ -241,7 +242,7 @@
 
       input[type="checkbox"]:focus-visible,
       input[type="checkbox"]:checked:focus-visible {
-        border-color: #5aaafa;
+        border-color: #343536;
       }
 
       @media (prefers-color-scheme: dark) {
@@ -407,11 +408,29 @@
       label > span {
         display: flex;
       }
+
+      .validated {
+        border: 3px solid #93de85 !important;
+      }
+
+      .invalidated {
+        border: 3px solid #ecced9 !important;
+      }
+
+      .deactivated * {
+        color: #c0bfc0;
+      }
+      .deactivated input {
+        background-color: #eaeaea !important;
+        border-color: #eaeaea !important;
+        cursor: auto !important;
+        background-image: none !important;
+      }
     </style>
   </head>
   <body>
     <main>
-      <h6>Solace Preferences</h6>
+      <h1>Solace Preferences</h1>
       <p>
         <label>
           <input type="checkbox" id="removeTwitterFeed" />
@@ -421,30 +440,49 @@
           </span>
         </label>
       </p>
+      <P>
+        <h2>Pro Features</h2>
+        Activation key required for the following additional features.
+      </P>
+      <div id="proFeatures">
+        <p>
+          <label>
+            <input type="checkbox" id="removeFacebookFeed" />
+            <span>
+              <i data-feather="facebook"></i>
+              Remove Facebook Feed
+            </span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" id="removeLinkedinFeed" />
+            <span>
+              <i data-feather="linkedin"></i>
+              Remove LinkedIn Feed
+            </span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" id="removeInstagramFeed" />
+            <span>
+              <i data-feather="instagram"></i>
+              Remove Instagram Feed
+            </span>
+          </label>
+        </p>
+      </div>
       <p>
-        <label>
-          <input type="checkbox" id="removeFacebookFeed" />
-          <span>
-            <i data-feather="facebook"></i>
-            Remove Facebook Feed
-          </span>
-        </label>
-      </p>
-      <p>
-        <label>
-          <input type="checkbox" id="removeLinkedinFeed" />
-          <span>
-            <i data-feather="linkedin"></i>
-            Remove LinkedIn Feed
-          </span>
-        </label>
-      </p>
-      <p>
-        <label>
-          <input type="checkbox" id="removeInstagramFeed" />
-          <span>
-            <i data-feather="instagram"></i>
-            Remove Instagram Feed
+        <label
+          style="position: relative; display: flex; flex-direction: column"
+        >
+          Activation Key:
+          <input style="width: 100%" type="text" id="activationKey" />
+          <span
+            style="position: absolute; right: 6px; top: 36px; color: #343536"
+          >
+            <i data-feather="key"></i>
           </span>
         </label>
       </p>
@@ -453,5 +491,6 @@
     <div id="status"></div>
     <script src="feather.min.js"></script>
     <script src="options.js"></script>
+    <script src="validate.js"></script>
   </body>
 </html>
