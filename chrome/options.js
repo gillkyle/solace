@@ -13,6 +13,7 @@ function save_options() {
       removeLinkedinFeed,
       removeInstagramFeed,
       activationKey,
+      validKey: authorized(activationKey),
     },
     function () {
       // Update status to let user know options were saved.
@@ -68,6 +69,7 @@ function validate_key() {
       if (authorized(items.activationKey)) {
         console.log("Authed!")
         activationKeyEl.setAttribute("class", "validated")
+        document.getElementById("proFeatures").classList.remove("deactivated")
       } else {
         console.log("NOPE!")
         activationKeyEl.setAttribute("class", "invalidated")

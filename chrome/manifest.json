@@ -24,10 +24,6 @@
     {
       "css": ["linkedin.css"],
       "matches": ["https://www.linkedin.com/feed/"]
-    },
-    {
-      "css": ["instagram.css"],
-      "matches": ["https://www.instagram.com/"]
     }
   ],
   "background": {
