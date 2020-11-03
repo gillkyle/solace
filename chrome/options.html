@@ -192,31 +192,6 @@
         }
       }
 
-      textarea {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        font-size: 1rem;
-        border: 2px solid #f6f6f6;
-        color: #343334;
-        border-radius: 10px;
-        resize: vertical;
-        background-color: #f6f6f6;
-        box-sizing: border-box;
-        padding: 0.5rem;
-        font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
-          "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial,
-          sans-serif;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        textarea {
-          background-color: #595859;
-          border-color: #595859;
-          color: white;
-        }
-      }
-
       input:focus,
       select:focus,
       textarea:focus {
@@ -377,99 +352,26 @@
         button:hover {
           cursor: pointer;
           background-color: #494949;
+          box-shadow: 0 0 1px 2px white, 0 0 1px 4px black;
+          transition: all 0.3s ease-in-out;
         }
       }
 
-      button:focus-visible,
-      input[type="submit"]:focus-visible,
-      input[type="reset"]:focus-visible,
-      input[type="button"]:focus-visible {
-        border-color: #5aaafa;
+      button:focus,
+      input[type="submit"]:focus,
+      input[type="reset"]:focus,
+      input[type="button"]:focus {
         outline: none;
+        transition: all 0.3s ease-in-out;
       }
 
-      table {
-        width: 100%;
-        border-spacing: 0;
-        margin-bottom: 1.563rem;
-        font-variant-numeric: tabular-nums;
-      }
-
-      th,
-      td {
-        padding: 0.5rem 0.5rem 0.5rem 0;
-        margin: 0;
-      }
-
-      th {
-        font-weight: bold;
-        text-align: left;
-        border-bottom: 2px solid #d8d8d8;
-        color: #d8d8d8;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        th {
-          border-color: #595859;
-          color: #595859;
-        }
-      }
-
-      td {
-        border-bottom: 2px solid #d8d8d8;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        td {
-          border-color: #595859;
-        }
-      }
-
-      code {
-        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
-          Courier, monospace;
-        font-size: 0.8rem;
-        white-space: nowrap;
-        background: #f6f6f6;
-        padding: 0 0.328rem;
-        display: inline-block;
-        vertical-align: middle;
-        border-radius: 10px;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        code {
-          background-color: #595859;
-        }
-      }
-
-      p > code {
-        white-space: normal;
-      }
-
-      pre > code {
-        line-height: 1.563em;
-        display: block;
-        padding: 1rem;
-        white-space: pre;
-        margin-bottom: 1.563rem;
-        overflow: scroll;
-      }
-
-      pre > code::after {
-        content: " ";
-      }
-
-      blockquote {
-        border-left: 0.25rem solid #f6f6f6;
-        padding: 0 1rem;
-        margin-bottom: 1.563rem;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        blockquote {
-          border-left: 0.25rem solid #595859;
-        }
+      button:active,
+      input[type="submit"]:active,
+      input[type="reset"]:active,
+      input[type="button"]:active {
+        outline: none;
+        box-shadow: 0 0 1px 1px white, 0 0 1px 4px #444;
+        transition: all 0.1s ease-in-out;
       }
 
       ul {
@@ -492,31 +394,6 @@
 
       li {
         list-style-position: inside;
-      }
-
-      kbd {
-        display: inline-block;
-        padding: 0 0.328rem;
-        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
-          Courier, monospace;
-        font-size: 0.64rem;
-        color: #343334;
-        vertical-align: middle;
-        background-color: #f9f9f9;
-        border: solid 1px #d8d8d8;
-        border-bottom: solid 2px #a6a5a6;
-        border-radius: 5px;
-      }
-
-      abbr {
-        text-decoration: none;
-        border-bottom: 2px dashed #949394;
-      }
-
-      @media (hover: hover) {
-        abbr:hover {
-          cursor: help;
-        }
       }
 
       i {
