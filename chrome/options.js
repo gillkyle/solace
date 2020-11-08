@@ -18,10 +18,10 @@ function save_options() {
     function () {
       // Update status to let user know options were saved.
       var status = document.getElementById("status")
-      status.textContent = "Preferences saved."
+      status.style.visibility = "inherit"
       validate_key()
       setTimeout(function () {
-        status.textContent = ""
+        status.style.visibility = "hidden"
       }, 1250)
     }
   )
@@ -70,12 +70,16 @@ function validate_key() {
         console.log("Authed!")
         activationKeyEl.setAttribute("class", "validated")
         document.getElementById("proFeatures").classList.remove("deactivated")
+        document.getElementById("check").style.setProperty("display", `flex`)
+        document.getElementById("x").style.setProperty("display", `none`)
       } else {
         console.log("NOPE!")
         activationKeyEl.setAttribute("class", "invalidated")
         document
           .getElementById("proFeatures")
           .setAttribute("class", "deactivated")
+        document.getElementById("x").style.setProperty("display", `flex`)
+        document.getElementById("check").style.setProperty("display", `none`)
       }
     }
   )

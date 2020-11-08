@@ -1,8 +1,8 @@
 {
-  "name": "Solace",
-  "short_name": "Solace",
-  "description": "Removes feeds and distracting content from popular social media like Facebook and Twitter.",
-  "version": "0.0.1",
+  "name": "Scroll Solace - Hide Social Media Feeds",
+  "short_name": "Scroll Solace",
+  "description": "Removes feeds and distracting content from popular social media like Twitter, Facebook, and LinkedIn.",
+  "version": "1.0.0",
   "manifest_version": 2,
   "permissions": ["storage", "tabs"],
   "content_scripts": [
@@ -29,6 +29,14 @@
   "background": {
     "scripts": ["background.js"],
     "run_at": "document_end"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "img/favicon@0.125x.png",
+      "32": "img/favicon@0.25x.png"
+    },
+    "default_title": "Google Mail",
+    "default_popup": "options.html"
   },
   "commands": {
     "_execute_browser_action": {

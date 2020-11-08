@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Solace Extension Options</title>
+    <title>Scroll Solace Extension Options</title>
     <style>
       * {
         box-sizing: border-box;
@@ -21,6 +21,7 @@
         margin: 0;
         padding: 0;
         text-decoration-skip-ink: "auto";
+        min-width: 360px;
       }
 
       body {
@@ -53,8 +54,9 @@
       }
 
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
         line-height: 1;
+        margin-bottom: 18px
       }
 
       h2 {
@@ -197,7 +199,7 @@
       select:focus,
       textarea:focus {
         outline: none;
-        border: 3px solid #343536;
+        border: 3px solid #bdbdbd;
       }
 
       input:invalid,
@@ -398,11 +400,12 @@
       }
 
       i {
-        height: 16px;
+        height: 14px;
       }
       span > svg {
         margin-right: 8px;
         margin-left: 4px;
+        height: 20px
       }
 
       label > span {
@@ -410,11 +413,12 @@
       }
 
       .validated {
-        border: 3px solid #93de85 !important;
+        border: 3px solid #cdcdcd;
+        background-color: #fafff9 !important;
       }
 
       .invalidated {
-        border: 3px solid #ecced9 !important;
+        border: 3px solid #cdcdcd;
       }
 
       .deactivated * {
@@ -430,7 +434,7 @@
   </head>
   <body>
     <main>
-      <h1>Solace Preferences</h1>
+      <h1 style="display: flex; align-items: center"><img style="height: 34px; margin-left: -8px; margin-right: 8px" src="./img/favicon@0.75x.png" />Scroll Solace Preferences</h1>
       <p>
         <label>
           <input type="checkbox" id="removeTwitterFeed" />
@@ -480,7 +484,13 @@
           Activation Key:
           <input style="width: 100%; height: 48px" type="text" id="activationKey" />
           <span
-            style="position: absolute; right: 6px; top: 36px; color: #343536; line-height: 0"
+            style="position: absolute; right: 36px; top: 33px; line-height: 0"
+          >
+            <i id="check" style="color: #93de85;" data-feather="check"></i>
+            <i id="x" style="color: #cdcdcd;"  data-feather="x"></i>
+          </span>
+          <span
+            style="position: absolute; right: 6px; top: 32px; color: #343536; line-height: 0"
           >
             <i data-feather="key"></i>
           </span>
@@ -488,9 +498,8 @@
       </p>
       <button id="save">Save</button>
     </main>
-    <div id="status"></div>
+    <div id="status" style="visibility: hidden">Preferences saved.</div>
     <script src="feather.min.js"></script>
     <script src="options.js"></script>
-    <script src="validate.js"></script>
   </body>
 </html>

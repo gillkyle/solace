@@ -1,0 +1,18 @@
+{
+  "name": "solace",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:gillkyle/solace.git",
+  "author": "Kyle Gill <kylerobertgill@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "uglify-js": "^3.11.5"
+  },
+  "scripts": {
+    "ugly": "javascript-obfuscator chrome/options.js --output build/options.js && javascript-obfuscator chrome/solace.js --output build/solace.js",
+    "prepare": "cp -r ./chrome/ ./build && yarn ugly"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^2.7.1"
+  }
+}
