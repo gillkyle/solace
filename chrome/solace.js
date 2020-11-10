@@ -46,6 +46,7 @@ div[role="main"] > div:nth-child(n + 2) {
   display: none !important;
 }
 .neptune-grid {
+  min-height: 100vh;
   ${solaceBackground}
 }
 `

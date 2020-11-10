@@ -4,10 +4,36 @@
  * ============================================================================
  */
 .ad-banner-container {
+  /* display: none !important; */
   visibility: hidden !important;
   padding: 0 !important;
+  max-height: 10px !important;
 }
 
 .premium-upsell-link {
+  display: none !important;
+}
+
+iframe .ad-banner {
+  display: none !important;
+}
+
+.feed-shared-promo {
+  display: none !important;
+}
+
+.left-rail .community-panel {
+  display: none !important;
+}
+
+.right-rail .news-module {
+  display: none !important;
+}
+
+.right-rail .feed-follows-module {
+  display: none !important;
+}
+
+a.ad-banner {
   display: none !important;
 }

@@ -416,11 +416,11 @@
         border: 3px solid #cdcdcd;
         background-color: #fafff9 !important;
       }
-
+      
       .invalidated {
         border: 3px solid #cdcdcd;
       }
-
+      
       .deactivated * {
         color: #c0bfc0;
       }
@@ -429,6 +429,25 @@
         border-color: #eaeaea !important;
         cursor: auto !important;
         background-image: none !important;
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        .validated {
+          border: 3px solid #595859;
+          background-color: #343536 !important;
+        }
+        .invalidated {
+          border: 3px solid #595959;
+        }
+        .deactivated * {
+          color: #bdbdbd;
+#bdbdbd}
+        .deactivated input {
+          background-color: #343434 !important;
+          border-color: #343434 !important;
+          cursor: auto !important;
+          background-image: none !important;
+        }
       }
     </style>
   </head>
