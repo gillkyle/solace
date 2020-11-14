@@ -2,7 +2,7 @@
   "name": "Scroll Solace - Hide Social Media Feeds",
   "short_name": "Scroll Solace",
   "description": "Removes feeds and distracting content from popular social media like Twitter, Facebook, and LinkedIn.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest_version": 2,
   "permissions": ["storage", "tabs"],
   "content_scripts": [

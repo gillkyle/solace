@@ -3,457 +3,463 @@
   <head>
     <title>Scroll Solace Extension Options</title>
     <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-tap-highlight-color: transparent;
-      }
+            * {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+              text-rendering: optimizeLegibility;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+              -webkit-tap-highlight-color: transparent;
+            }
 
-      html {
-        font-size: calc(1rem + 2px + ((100vw - 600px) / 250));
-        font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
-          "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial,
-          sans-serif;
-        margin: 0;
-        padding: 0;
-        text-decoration-skip-ink: "auto";
-        min-width: 360px;
-      }
+            html {
+              font-size: calc(1rem + 2px + ((100vw - 600px) / 250));
+              font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
+                "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial,
+                sans-serif;
+              margin: 0;
+              padding: 0;
+              text-decoration-skip-ink: "auto";
+              min-width: 360px;
+            }
 
-      body {
-        padding: 0;
-        margin: calc((100vh / 25) * 1.563) calc((100vw / 25) * 1.563);
-        background-color: white;
-        font-weight: 400;
-        line-height: 1.563;
-        color: #272727;
-        caret-color: #272727;
-      }
+            body {
+              padding: 0;
+              margin: calc((100vh / 25) * 1.563) calc((100vw / 25) * 1.563);
+              background-color: white;
+              font-weight: 400;
+              line-height: 1.563;
+              color: #272727;
+              caret-color: #272727;
+            }
 
-      @media (prefers-color-scheme: dark) {
-        body {
-          color: white;
-          background-color: #272727;
-          caret-color: white;
-        }
-      }
+            @media (prefers-color-scheme: dark) {
+              body {
+                color: white;
+                background-color: #272727;
+                caret-color: white;
+              }
+            }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        margin-bottom: 14px;
-        margin-top: 14px;
-        font-weight: bold;
-      }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+              margin-bottom: 14px;
+              margin-top: 14px;
+              font-weight: bold;
+            }
 
-      h1 {
-        font-size: 1.35rem;
-        line-height: 1;
-        margin-bottom: 18px
-      }
+            h1 {
+              font-size: 1.35rem;
+              line-height: 1;
+              margin-bottom: 18px
+            }
 
-      h2 {
-        font-size: 20px;
-        margin-bottom: 0;
-      }
+            h2 {
+              font-size: 20px;
+              margin-bottom: 0;
+            }
 
-      h3 {
-        font-size: 1.953rem;
-        letter-spacing: -0.09rem;
-        line-height: 1.2;
-      }
+            h3 {
+              font-size: 1.953rem;
+              letter-spacing: -0.09rem;
+              line-height: 1.2;
+            }
 
-      h4 {
-        font-size: 1.563rem;
-        letter-spacing: -0.06rem;
-        line-height: 1.3;
-      }
+            h4 {
+              font-size: 1.563rem;
+              letter-spacing: -0.06rem;
+              line-height: 1.3;
+            }
 
-      h5 {
-        font-size: 1.25rem;
-        letter-spacing: -0.03rem;
-        line-height: 1.4;
-      }
+            h5 {
+              font-size: 1.25rem;
+              letter-spacing: -0.03rem;
+              line-height: 1.4;
+            }
 
-      h6 {
-        font-size: 1rem;
-        letter-spacing: 0;
-        line-height: 1.5;
-      }
+            h6 {
+              font-size: 1rem;
+              letter-spacing: 0;
+              line-height: 1.5;
+            }
 
-      p {
-        margin-bottom: 1.563rem;
-        max-width: 300px;
-        cursor: pointer !important;
-        z-index: 5;
-      }
+            p {
+              margin-bottom: 1.563rem;
+              max-width: 300px;
+              cursor: pointer !important;
+              z-index: 5;
+            }
 
-      p > *:last-child {
-        margin-bottom: 0;
-      }
+            p > *:last-child {
+              margin-bottom: 0;
+            }
 
-      a {
-        color: inherit;
-        text-decoration: underline;
-        text-decoration-color: #c0bfc0;
-        -webkit-text-decoration-color: #c0bfc0;
-        border-radius: 5px;
-        text-underline-offset: 2px;
-        text-decoration-thickness: 2px;
-      }
+            a {
+              color: inherit;
+              text-decoration: underline;
+              text-decoration-color: #c0bfc0;
+              -webkit-text-decoration-color: #c0bfc0;
+              border-radius: 5px;
+              text-underline-offset: 2px;
+              text-decoration-thickness: 2px;
+            }
 
-      @media (hover: hover) {
-        a:hover {
-          text-decoration-color: #272727;
-        }
-      }
+            @media (hover: hover) {
+              a:hover {
+                text-decoration-color: #272727;
+              }
+            }
 
-      @media (hover: hover) and (prefers-color-scheme: dark) {
-        a:hover {
-          text-decoration-color: white;
-        }
-      }
+            @media (hover: hover) and (prefers-color-scheme: dark) {
+              a:hover {
+                text-decoration-color: white;
+              }
+            }
 
-      @media (prefers-color-scheme: dark) {
-        a {
-          text-decoration-color: #777677;
-          -webkit-text-decoration-color: #777677;
-        }
-      }
+            @media (prefers-color-scheme: dark) {
+              a {
+                text-decoration-color: #777677;
+                -webkit-text-decoration-color: #777677;
+              }
+            }
 
-      a:focus-visible {
-        box-shadow: 0 0 0 2px #5aaafa;
-        outline: none;
-      }
+            a:focus-visible {
+              box-shadow: 0 0 0 2px #5aaafa;
+              outline: none;
+            }
 
-      small {
-        font-size: 0.888rem;
-      }
+            small {
+              font-size: 0.888rem;
+            }
 
-      hr {
-        border: 1px solid #343334;
-        margin: 3.052rem 0;
-      }
+            hr {
+              border: 1px solid #343334;
+              margin: 3.052rem 0;
+            }
 
-      label {
-        font-weight: bold;
-        display: flex;
-      }
+            label {
+              font-weight: bold;
+              display: flex;
+            }
 
-      input[type="email"],
-      input[type="text"],
-      input[type="number"] {
-        padding: 0.5rem;
-        font-size: 1rem;
-        border: 3px solid #ddd;
-        background-color: #f6f6f6;
-        color: #343334;
-        border-radius: 10px;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-      }
+            input[type="email"],
+            input[type="text"],
+            input[type="number"] {
+              padding: 0.5rem;
+              font-size: 1rem;
+              border: 3px solid #ddd;
+              background-color: #f6f6f6;
+              color: #343334;
+              border-radius: 10px;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+            }
 
-      @media (prefers-color-scheme: dark) {
-        input[type="email"],
-        input[type="text"],
-        input[type="number"] {
-          background-color: #595859;
-          border-color: #595859;
-          color: white;
-        }
-      }
+            @media (prefers-color-scheme: dark) {
+              input[type="email"],
+              input[type="text"],
+              input[type="number"] {
+                background-color: #595859;
+                border-color: #595859;
+                color: white;
+              }
+            }
 
-      select {
-        -webkit-appearance: none;
-        padding: 0.5rem;
-        font-size: 1rem;
-        border: 2px solid #f6f6f6;
-        border-radius: 10px;
-        color: #343334;
-        height: 2.5rem;
-        background-color: #f6f6f6;
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.304 125.304"><path d="M62.652 103.895L0 21.41h125.304" fill="%23343334"/></svg>');
-        background-repeat: no-repeat;
-        background-size: 1rem;
-        background-position: center right 0.5rem;
-      }
+            select {
+              -webkit-appearance: none;
+              padding: 0.5rem;
+              font-size: 1rem;
+              border: 2px solid #f6f6f6;
+              border-radius: 10px;
+              color: #343334;
+              height: 2.5rem;
+              background-color: #f6f6f6;
+              background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.304 125.304"><path d="M62.652 103.895L0 21.41h125.304" fill="%23343334"/></svg>');
+              background-repeat: no-repeat;
+              background-size: 1rem;
+              background-position: center right 0.5rem;
+            }
 
-      @media (prefers-color-scheme: dark) {
-        select {
-          background-color: #595859;
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.304 125.304"><path d="M62.652 103.895L0 21.41h125.304" fill="%23ffffff"/></svg>');
-          border-color: #595859;
-          color: white;
-        }
-      }
+            @media (prefers-color-scheme: dark) {
+              select {
+                background-color: #595859;
+                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.304 125.304"><path d="M62.652 103.895L0 21.41h125.304" fill="%23ffffff"/></svg>');
+                border-color: #595859;
+                color: white;
+              }
+            }
 
-      input:focus,
-      select:focus,
-      textarea:focus {
-        outline: none;
-        border: 3px solid #bdbdbd;
-      }
+            input:focus,
+            select:focus,
+            textarea:focus {
+              outline: none;
+              border: 3px solid #bdbdbd;
+            }
 
-      input:invalid,
-      select:invalid,
-      textarea:invalid {
-        border: 3px solid #ff7d87;
-        box-shadow: none;
-      }
+            input:invalid,
+            select:invalid,
+            textarea:invalid {
+              border: 3px solid #ff7d87;
+              box-shadow: none;
+            }
 
-      input[type="checkbox"] {
-        display: inline-block;
-        height: 1rem;
-        font-size: 1rem;
-        border-radius: 5px;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        border: 2px solid #d8d8d8;
-        width: 1rem;
-        background-color: white;
-        align-self: center;
-        margin-right: 0.5rem;
-      }
+            input[type="checkbox"] {
+              display: inline-block;
+              height: 1rem;
+              font-size: 1rem;
+              border-radius: 5px;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              border: 2px solid #d8d8d8;
+              width: 1rem;
+              background-color: white;
+              align-self: center;
+              margin-right: 0.5rem;
+            }
 
-      @media (prefers-color-scheme: dark) {
-        input[type="checkbox"] {
-          background-color: #272727;
-          border-color: white;
-        }
-      }
+            @media (prefers-color-scheme: dark) {
+              input[type="checkbox"] {
+                background-color: #272727;
+                border-color: white;
+              }
+            }
 
-      input[type="checkbox"]:hover {
-        cursor: pointer;
-      }
+            input[type="checkbox"]:hover {
+              cursor: pointer;
+            }
 
-      input[type="checkbox"]:checked {
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="78.369" height="78.369" viewBox="0 0 78.369 78.369"><path fill="white" d="M78.05 19.015l-48.592 48.59c-.428.43-1.12.43-1.548 0L.32 40.016c-.427-.426-.427-1.12 0-1.547l6.704-6.704c.428-.427 1.12-.427 1.548 0l20.113 20.112 41.113-41.113c.43-.427 1.12-.427 1.548 0l6.703 6.704c.427.427.427 1.12 0 1.548z"/></svg>');
-        background-size: contain;
-        background-color: #343334;
-        border: 2px solid #343334;
-      }
+            input[type="checkbox"]:checked {
+              background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="78.369" height="78.369" viewBox="0 0 78.369 78.369"><path fill="white" d="M78.05 19.015l-48.592 48.59c-.428.43-1.12.43-1.548 0L.32 40.016c-.427-.426-.427-1.12 0-1.547l6.704-6.704c.428-.427 1.12-.427 1.548 0l20.113 20.112 41.113-41.113c.43-.427 1.12-.427 1.548 0l6.703 6.704c.427.427.427 1.12 0 1.548z"/></svg>');
+              background-size: contain;
+              background-color: #343334;
+              border: 2px solid #343334;
+            }
 
-      input[type="checkbox"]:focus-visible,
-      input[type="checkbox"]:checked:focus-visible {
-        border-color: #343536;
-      }
+            input[type="checkbox"]:focus-visible,
+            input[type="checkbox"]:checked:focus-visible {
+              border-color: #343536;
+            }
 
-      @media (prefers-color-scheme: dark) {
-        input[type="checkbox"]:checked {
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="78.369" height="78.369" viewBox="0 0 78.369 78.369"><path fill="%23343434" d="M78.05 19.015l-48.592 48.59c-.428.43-1.12.43-1.548 0L.32 40.016c-.427-.426-.427-1.12 0-1.547l6.704-6.704c.428-.427 1.12-.427 1.548 0l20.113 20.112 41.113-41.113c.43-.427 1.12-.427 1.548 0l6.703 6.704c.427.427.427 1.12 0 1.548z"/></svg>');
-          background-color: white;
-          border: 2px solid white;
-        }
-      }
+            @media (prefers-color-scheme: dark) {
+              input[type="checkbox"]:checked {
+                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="78.369" height="78.369" viewBox="0 0 78.369 78.369"><path fill="%23343434" d="M78.05 19.015l-48.592 48.59c-.428.43-1.12.43-1.548 0L.32 40.016c-.427-.426-.427-1.12 0-1.547l6.704-6.704c.428-.427 1.12-.427 1.548 0l20.113 20.112 41.113-41.113c.43-.427 1.12-.427 1.548 0l6.703 6.704c.427.427.427 1.12 0 1.548z"/></svg>');
+                background-color: white;
+                border: 2px solid white;
+              }
+            }
 
-      input[type="radio"] {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        border-radius: 50%;
-        border: 2px solid #d8d8d8;
-        height: 1rem;
-        width: 1rem;
-        margin-right: 0.5rem;
-        align-self: center;
-        justify-content: center;
-        position: relative;
-        display: flex;
-      }
+            input[type="radio"] {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              border-radius: 50%;
+              border: 2px solid #d8d8d8;
+              height: 1rem;
+              width: 1rem;
+              margin-right: 0.5rem;
+              align-self: center;
+              justify-content: center;
+              position: relative;
+              display: flex;
+            }
 
-      @media (prefers-color-scheme: dark) {
-        input[type="radio"] {
-          border: 2px solid white;
-        }
-      }
+            @media (prefers-color-scheme: dark) {
+              input[type="radio"] {
+                border: 2px solid white;
+              }
+            }
 
-      @media (hover: hover) {
-        input[type="radio"]:hover {
-          cursor: pointer;
-        }
-      }
+            @media (hover: hover) {
+              input[type="radio"]:hover {
+                cursor: pointer;
+              }
+            }
 
-      input[type="radio"]:checked {
-        border: 2px solid #343334;
-      }
+            input[type="radio"]:checked {
+              border: 2px solid #343334;
+            }
 
-      input[type="radio"]:focus-visible,
-      input[type="radio"]:checked:focus-visible {
-        border-color: #5aaafa;
-      }
+            input[type="radio"]:focus-visible,
+            input[type="radio"]:checked:focus-visible {
+              border-color: #5aaafa;
+            }
 
-      @media (prefers-color-scheme: dark) {
-        input[type="radio"]:checked {
-          border: 2px solid white;
-        }
-      }
+            @media (prefers-color-scheme: dark) {
+              input[type="radio"]:checked {
+                border: 2px solid white;
+              }
+            }
 
-      input[type="radio"]:checked::before {
-        content: "";
-        width: calc(100% - 4px);
-        height: calc(100% - 4px);
-        background-color: #343334;
-        align-self: center;
-        border-radius: 50%;
-      }
+            input[type="radio"]:checked::before {
+              content: "";
+              width: calc(100% - 4px);
+              height: calc(100% - 4px);
+              background-color: #343334;
+              align-self: center;
+              border-radius: 50%;
+            }
 
-      @media (prefers-color-scheme: dark) {
-        input[type="radio"]:checked::before {
-          background-color: white;
-        }
-      }
+            @media (prefers-color-scheme: dark) {
+              input[type="radio"]:checked::before {
+                background-color: white;
+              }
+            }
 
-      input[type="submit"],
-      input[type="reset"],
-      input[type="button"],
-      button {
-        padding: 0.5rem 1.25rem;
-        font-size: 1rem;
-        border-radius: 10px;
-        background-color: #343334;
-        border: 2px solid #343334;
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        display: inline-block;
-        line-height: initial;
-        transition: background-color 200ms ease-in-out, border 200ms ease-in-out,
-          transform 200ms ease-in-out;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        user-select: none;
-      }
+            input[type="submit"],
+            input[type="reset"],
+            input[type="button"],
+            button {
+              padding: 0.5rem 1.25rem;
+              font-size: 1rem;
+              border-radius: 10px;
+              background-color: #343334;
+              border: 2px solid #343334;
+              color: white;
+              text-decoration: none;
+              font-weight: bold;
+              margin-bottom: 1rem;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              display: inline-block;
+              line-height: initial;
+              transition: background-color 200ms ease-in-out, border 200ms ease-in-out,
+                transform 200ms ease-in-out;
+              -webkit-touch-callout: none;
+              -webkit-user-select: none;
+              user-select: none;
+            }
 
-      @media (prefers-color-scheme: dark) {
-        input[type="submit"],
-        input[type="reset"],
-        input[type="button"],
-        button {
-          background-color: white;
-          border: 2px solid white;
-          color: #272727;
-        }
-      }
+            @media (prefers-color-scheme: dark) {
+              input[type="submit"],
+              input[type="reset"],
+              input[type="button"],
+              button {
+                background-color: white;
+                border: 2px solid white;
+                color: #272727;
+              }
+            }
 
-      @media (hover: hover) {
-        input[type="submit"]:hover,
-        input[type="reset"]:hover,
-        input[type="button"]:hover,
-        button:hover {
-          cursor: pointer;
-          background-color: #494949;
-          box-shadow: 0 0 1px 2px white, 0 0 1px 4px black;
-          transition: all 0.3s ease-in-out;
-        }
-      }
+            @media (hover: hover) {
+              input[type="submit"]:hover,
+              input[type="reset"]:hover,
+              input[type="button"]:hover,
+              button:hover {
+                cursor: pointer;
+                background-color: #494949;
+                box-shadow: 0 0 1px 2px white, 0 0 1px 4px black;
+                transition: all 0.3s ease-in-out;
+              }
+            }
 
-      button:focus,
-      input[type="submit"]:focus,
-      input[type="reset"]:focus,
-      input[type="button"]:focus {
-        outline: none;
-        transition: all 0.3s ease-in-out;
-      }
+            button:focus,
+            input[type="submit"]:focus,
+            input[type="reset"]:focus,
+            input[type="button"]:focus {
+              outline: none;
+              transition: all 0.3s ease-in-out;
+            }
 
-      button:active,
-      input[type="submit"]:active,
-      input[type="reset"]:active,
-      input[type="button"]:active {
-        outline: none;
-        box-shadow: 0 0 1px 1px white, 0 0 1px 4px #444;
-        transition: all 0.1s ease-in-out;
-      }
+            button:active,
+            input[type="submit"]:active,
+            input[type="reset"]:active,
+            input[type="button"]:active {
+              outline: none;
+              box-shadow: 0 0 1px 1px white, 0 0 1px 4px #444;
+              transition: all 0.1s ease-in-out;
+            }
 
-      ul {
-        margin: 0;
-        padding: 0 1px;
-        list-style: disc outside;
-        font-variant-numeric: tabular-nums;
-      }
+            ul {
+              margin: 0;
+              padding: 0 1px;
+              list-style: disc outside;
+              font-variant-numeric: tabular-nums;
+            }
 
-      ol {
-        list-style: decimal outside;
-      }
+            ol {
+              list-style: decimal outside;
+            }
 
-      ol,
-      ul {
-        padding-left: 0;
-        margin-top: 0;
-        margin-bottom: 1.563rem;
-      }
+            ol,
+            ul {
+              padding-left: 0;
+              margin-top: 0;
+              margin-bottom: 1.563rem;
+            }
 
-      li {
-        list-style-position: inside;
-      }
+            li {
+              list-style-position: inside;
+            }
 
-      i {
-        height: 14px;
-      }
-      span > svg {
-        margin-right: 8px;
-        margin-left: 4px;
-        height: 20px
-      }
+            i {
+              height: 14px;
+            }
+            span > svg {
+              margin-right: 8px;
+              margin-left: 4px;
+              height: 20px
+            }
 
-      label > span {
-        display: flex;
-      }
+            label > span {
+              display: flex;
+            }
 
-      .validated {
-        border: 3px solid #cdcdcd;
-        background-color: #fafff9 !important;
-      }
-      
-      .invalidated {
-        border: 3px solid #cdcdcd;
-      }
-      
-      .deactivated * {
-        color: #c0bfc0;
-      }
-      .deactivated input {
-        background-color: #eaeaea !important;
-        border-color: #eaeaea !important;
-        cursor: auto !important;
-        background-image: none !important;
-      }
-      
-      @media (prefers-color-scheme: dark) {
-        .validated {
-          border: 3px solid #595859;
-          background-color: #343536 !important;
-        }
-        .invalidated {
-          border: 3px solid #595959;
-        }
-        .deactivated * {
-          color: #bdbdbd;
-#bdbdbd}
-        .deactivated input {
-          background-color: #343434 !important;
-          border-color: #343434 !important;
-          cursor: auto !important;
-          background-image: none !important;
-        }
-      }
+            .validated {
+              border: 3px solid #cdcdcd;
+              background-color: #fafff9 !important;
+            }
+
+            .invalidated {
+              border: 3px solid #cdcdcd;
+            }
+
+            .deactivated * {
+              color: #c0bfc0;
+            }
+            .deactivated input {
+              background-color: #eaeaea !important;
+              border-color: #eaeaea !important;
+              cursor: auto !important;
+              background-image: none !important;
+            }
+
+            @media (prefers-color-scheme: dark) {
+              .validated {
+                border: 3px solid #595859;
+                background-color: #343536 !important;
+              }
+              .invalidated {
+                border: 3px solid #595959;
+              }
+              .deactivated * {
+                color: #bdbdbd;
+      #bdbdbd}
+              .deactivated input {
+                background-color: #343434 !important;
+                border-color: #343434 !important;
+                cursor: auto !important;
+                background-image: none !important;
+              }
+            }
     </style>
   </head>
   <body>
     <main>
-      <h1 style="display: flex; align-items: center"><img style="height: 34px; margin-left: -8px; margin-right: 8px" src="./img/favicon@0.75x.png" />Scroll Solace Preferences</h1>
+      <h1 style="display: flex; align-items: center">
+        <img
+          style="height: 34px; margin-left: -8px; margin-right: 8px"
+          src="./img/favicon@0.75x.png"
+        />
+        Scroll Solace Preferences
+      </h1>
       <p>
         <label>
           <input type="checkbox" id="removeTwitterFeed" />
@@ -463,10 +469,10 @@
           </span>
         </label>
       </p>
-      <P>
+      <!-- <P>
         <h2>Pro Features</h2>
         Activation key required for the following additional features.
-      </P>
+      </P> -->
       <div id="proFeatures">
         <p>
           <label>
@@ -496,20 +502,30 @@
           </label>
         </p>
       </div>
-      <p>
+      <p style="display: none">
         <label
           style="position: relative; display: flex; flex-direction: column"
         >
           Activation Key:
-          <input style="width: 100%; height: 48px" type="text" id="activationKey" />
+          <input
+            style="width: 100%; height: 48px"
+            type="text"
+            id="activationKey"
+          />
           <span
             style="position: absolute; right: 36px; top: 33px; line-height: 0"
           >
-            <i id="check" style="color: #93de85;" data-feather="check"></i>
-            <i id="x" style="color: #cdcdcd;"  data-feather="x"></i>
+            <i id="check" style="color: #93de85" data-feather="check"></i>
+            <i id="x" style="color: #cdcdcd" data-feather="x"></i>
           </span>
           <span
-            style="position: absolute; right: 6px; top: 32px; color: #343536; line-height: 0"
+            style="
+              position: absolute;
+              right: 6px;
+              top: 32px;
+              color: #343536;
+              line-height: 0;
+            "
           >
             <i data-feather="key"></i>
           </span>
